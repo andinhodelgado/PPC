@@ -35,7 +35,6 @@ public class ManipDadosEnvio {
 	private int tipoEnvio;
 	
 	public ManipDadosEnvio() {
-		// TODO Auto-generated constructor stub
 	}
 	
     public static ManipDadosEnvio getInstance() {

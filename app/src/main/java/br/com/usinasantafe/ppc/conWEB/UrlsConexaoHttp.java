@@ -1,11 +1,14 @@
 package br.com.usinasantafe.ppc.conWEB;
 
+import br.com.usinasantafe.ppc.PPCContext;
+
 public class UrlsConexaoHttp {
 
-	private int tipoEnvio = 1;
+	public static String versao = "versao_" + PPCContext.versaoWS.replace(".", "_");
 
-	public static String urlPrincipal = "http://www.usinasantafe.com.br/cpc/";
-	public static String urlPrincEnvio = "http://www.usinasantafe.com.br/cpc/";
+  public static String urlPrincipal = "https://www.usinasantafe.com.br/ppcdev/view/";
+//	public static String urlPrincipal = "https://www.usinasantafe.com.br/ppcqa/view/";
+//    public static String urlPrincipal = "https://www.usinasantafe.com.br/ppcprod/" + versao + "/view/";
 	
 	public static String localPSTVariavel = "br.com.usinasantafe.ppc.to.tb.variaveis.";
 	public static String localPSTEstatica = "br.com.usinasantafe.ppc.to.tb.estaticas.";
@@ -19,14 +22,10 @@ public class UrlsConexaoHttp {
 	public static String OSESTTO = urlPrincipal + "os.php";
 
 	public UrlsConexaoHttp() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getsInsereAnaliseProd(){
-		if(tipoEnvio == 1)
-		return urlPrincEnvio + "apontperda.php";
-		else
-		return urlPrincEnvio + "apontperda.php";
+		return urlPrincipal + "apontperda.php";
 	}
 	
 }

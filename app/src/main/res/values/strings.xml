@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PPC</string>
-
     <string name="title_activity_lista_tipo_apont">LISTA TIPO</string>
     <string name="texto_retornar">RETORNAR</string>
     <string name="title_activity_lista_menu">MENU</string>
@@ -85,6 +84,6 @@
     <string name="title_activity_msg_fechar_analise">MsgFecharAnaliseActivity</string>
     <string name="texto_lista_menu">TIPO DE COLHEITA</string>
     <string name="texto_lista_tipo_apont">TIPO</string>
-    <string name="texto_menu_principal">PRINCIPAL</string>
+    <string name="texto_menu_principal">PRINCIPAL - V 1.00</string>
     <string name="texto_item_list">TESTE</string>
 </resources>

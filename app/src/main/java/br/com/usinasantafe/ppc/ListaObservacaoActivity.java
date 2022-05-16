@@ -36,7 +36,7 @@ public class ListaObservacaoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+
                 String observacao = "";
                 SparseBooleanArray checked = lista.getCheckedItemPositions();
 

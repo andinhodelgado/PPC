@@ -10,9 +10,11 @@ public class PPCContext extends Application {
 	private AmostraVARTO amostraVARTO;
 	private Long tipoCabecalho;
 	private int tipoFinalizar;
-	
+
+	public static String versaoAPP = "1.00";
+	public static String versaoWS = "1.00";
+
 	public PPCContext() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public CabecalhoVARTO getCabecalhoVARTO() {

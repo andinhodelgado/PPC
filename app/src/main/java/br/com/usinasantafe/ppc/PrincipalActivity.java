@@ -33,7 +33,7 @@ public class PrincipalActivity extends ActivityGeneric {
         itens.add("SAIR");
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaMenuInicial);
+        lista = findViewById(R.id.listaMenuInicial);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

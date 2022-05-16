@@ -33,7 +33,6 @@ public class ManipDadosReceb {
 	private UrlsConexaoHttp urlsConexaoHttp;
 	
 	public ManipDadosReceb() {
-		// TODO Auto-generated constructor stub
 		genericRecordable = new GenericRecordable();
 		urlsConexaoHttp = new UrlsConexaoHttp();
 	}
