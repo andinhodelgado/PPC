@@ -41,6 +41,7 @@ public class Auditor1Activity extends ActivityGeneric {
                         PPCContext.getCabecalhoVARTO().setAuditor1(auditor);
                         Intent it = new Intent(Auditor1Activity.this, Auditor2Activity.class);
                         startActivity(it);
+                        finish();
 
                     }
                     else{
@@ -52,7 +53,6 @@ public class Auditor1Activity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -70,7 +70,6 @@ public class Auditor1Activity extends ActivityGeneric {
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
                             editTextPadrao.setText("");
                         }
                     });
@@ -86,13 +85,13 @@ public class Auditor1Activity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
                 else{
                     Intent it = new Intent(Auditor1Activity.this, ListaMenuActivity.class);
                     startActivity(it);
+                    finish();
                 }
             }
         });

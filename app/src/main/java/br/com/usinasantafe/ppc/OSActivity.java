@@ -20,8 +20,8 @@ public class OSActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkOS = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancOS = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkOS = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancOS = findViewById(R.id.buttonCancPadrao);
 
         buttonOkOS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +36,7 @@ public class OSActivity extends ActivityGeneric {
                         PPCContext.getCabecalhoVARTO().setOs(Long.parseLong(editTextPadrao.getText().toString()));
                         Intent it = new Intent(OSActivity.this, FrenteActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                     else{
@@ -47,7 +48,6 @@ public class OSActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -69,6 +69,7 @@ public class OSActivity extends ActivityGeneric {
                 } else {
                     Intent it = new Intent(OSActivity.this, TalhaoActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }

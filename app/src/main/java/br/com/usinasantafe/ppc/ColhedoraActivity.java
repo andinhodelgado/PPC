@@ -25,8 +25,8 @@ public class ColhedoraActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkColhedora = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancColhedora = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkColhedora = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancColhedora = findViewById(R.id.buttonCancPadrao);
 
         buttonOkColhedora.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,7 @@ public class ColhedoraActivity extends ActivityGeneric {
                             PPCContext.getCabecalhoVARTO().setColhedora(idColhedora);
                             Intent it = new Intent(ColhedoraActivity.this, OperadorActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
                         else{
@@ -74,6 +75,7 @@ public class ColhedoraActivity extends ActivityGeneric {
 
                                 Intent it = new Intent(ColhedoraActivity.this, OperadorActivity.class);
                                 startActivity(it);
+                                finish();
 
                             }
                             else{
@@ -85,7 +87,6 @@ public class ColhedoraActivity extends ActivityGeneric {
                                 alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        // TODO Auto-generated method stub
                                         editTextPadrao.setText("");
                                     }
                                 });
@@ -105,7 +106,6 @@ public class ColhedoraActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -124,14 +124,13 @@ public class ColhedoraActivity extends ActivityGeneric {
             public void onClick(View v) {
 
                 if(editTextPadrao.getText().toString().length() > 0){
-
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
-
                 }
                 else{
 
                     Intent it = new Intent(ColhedoraActivity.this, FrenteActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
 

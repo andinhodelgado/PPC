@@ -11,8 +11,8 @@ public class PPCContext extends Application {
 	private Long tipoCabecalho;
 	private int tipoFinalizar;
 
-	public static String versaoAPP = "1.00";
-	public static String versaoWS = "1.00";
+	public static String versaoAPP = "1.01";
+	public static String versaoWS = "1.01";
 
 	public PPCContext() {
 	}

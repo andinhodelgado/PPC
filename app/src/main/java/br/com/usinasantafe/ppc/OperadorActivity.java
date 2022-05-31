@@ -21,8 +21,8 @@ public class OperadorActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkOperador= (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancOperador = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkOperador= findViewById(R.id.buttonOkPadrao);
+        Button buttonCancOperador = findViewById(R.id.buttonCancPadrao);
 
         buttonOkOperador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +58,7 @@ public class OperadorActivity extends ActivityGeneric {
 
                         Intent it = new Intent(OperadorActivity.this, ListaTipoApontActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
 
@@ -78,6 +79,7 @@ public class OperadorActivity extends ActivityGeneric {
                 } else {
                     Intent it = new Intent(OperadorActivity.this, ColhedoraActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }

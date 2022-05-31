@@ -18,14 +18,13 @@ public class SoqueiraKgActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkSoqueiraKg = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancSoqueiraKg = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkSoqueiraKg = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancSoqueiraKg = findViewById(R.id.buttonCancPadrao);
 
         buttonOkSoqueiraKg.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 if(!editTextPadrao.getText().toString().equals("")){
 
@@ -37,6 +36,7 @@ public class SoqueiraKgActivity extends ActivityGeneric {
                         PPCContext.getAmostraVARTO().setSoqueiraKg(soqueiraKgNum);
                         Intent it = new Intent(SoqueiraKgActivity.this, SoqueiraNumActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                     else{
@@ -48,7 +48,6 @@ public class SoqueiraKgActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -62,6 +61,7 @@ public class SoqueiraKgActivity extends ActivityGeneric {
                     PPCContext.getAmostraVARTO().setSoqueiraKg(0D);
                     Intent it = new Intent(SoqueiraKgActivity.this, SoqueiraNumActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
 
@@ -72,7 +72,6 @@ public class SoqueiraKgActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
@@ -81,10 +80,12 @@ public class SoqueiraKgActivity extends ActivityGeneric {
                     if(PPCContext.getTipoCabecalho() == 1L){
                         Intent it = new Intent(SoqueiraKgActivity.this, LascasActivity.class);
                         startActivity(it);
+                        finish();
                     }
                     else if(PPCContext.getTipoCabecalho() == 2L){
                         Intent it = new Intent(SoqueiraKgActivity.this, PonteiroActivity.class);
                         startActivity(it);
+                        finish();
                     }
 
                 }

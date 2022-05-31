@@ -82,6 +82,7 @@ public class ListaObservacaoActivity extends ActivityGeneric {
 
                 Intent it = new Intent(ListaObservacaoActivity.this, MsgFecharAnaliseActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 
@@ -89,17 +90,16 @@ public class ListaObservacaoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-//                Intent it = new Intent(ListaObservacaoActivity.this, SoqueiraNumActivity.class);
-//                startActivity(it);
 
                 if(PPCContext.getTipoCabecalho() == 1L){
                     Intent it = new Intent(ListaObservacaoActivity.this, LascasActivity.class);
                     startActivity(it);
+                    finish();
                 }
                 else if(PPCContext.getTipoCabecalho() == 2L){
                     Intent it = new Intent(ListaObservacaoActivity.this, PonteiroActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }
@@ -123,7 +123,7 @@ public class ListaObservacaoActivity extends ActivityGeneric {
 
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, itens);
 
-        lista = (ListView) findViewById(R.id.listaObservacao);
+        lista = findViewById(R.id.listaObservacao);
         lista.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         lista.setAdapter(adaptador);
 

@@ -20,8 +20,8 @@ public class FrenteActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkFrente = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancFrente = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkFrente = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancFrente = findViewById(R.id.buttonCancPadrao);
 
         buttonOkFrente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +38,7 @@ public class FrenteActivity extends ActivityGeneric {
                             PPCContext.getCabecalhoVARTO().setFrente(Long.parseLong(editTextPadrao.getText().toString()));
                             Intent it = new Intent(FrenteActivity.this, ColhedoraActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
                         else if(PPCContext.getCabecalhoVARTO().getTipo() == 2L){
@@ -68,6 +69,7 @@ public class FrenteActivity extends ActivityGeneric {
 
                             Intent it = new Intent(FrenteActivity.this, ListaTipoApontActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
 
@@ -88,6 +90,7 @@ public class FrenteActivity extends ActivityGeneric {
                 else{
                     Intent it = new Intent(FrenteActivity.this, OSActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }

@@ -9,53 +9,39 @@ import android.widget.Button;
 
 public class TaraActivity extends ActivityGeneric {
 
-    private PPCContext PPCContext;
+    private PPCContext ppcContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tara);
 
-        PPCContext = (PPCContext) getApplication();
+        ppcContext = (PPCContext) getApplication();
 
-        Button buttonOkTara = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancTara = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkTara = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancTara = findViewById(R.id.buttonCancPadrao);
 
         buttonOkTara.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 if (!editTextPadrao.getText().toString().equals("")) {
-
                     String tara = editTextPadrao.getText().toString();
-                    PPCContext.getAmostraVARTO().setTara(Double.valueOf(tara.replace(",", ".")));
-
-                    if (PPCContext.getTipoCabecalho() == 1L) {
-                        Intent it = new Intent(TaraActivity.this, ToleteActivity.class);
-                        startActivity(it);
-                    } else if (PPCContext.getTipoCabecalho() == 2L) {
-                        PPCContext.getAmostraVARTO().setTolete(0D);
-                        Intent it = new Intent(TaraActivity.this, CanaInteiraActivity.class);
-                        startActivity(it);
-                    }
-
+                    ppcContext.getAmostraVARTO().setTara(Double.valueOf(tara.replace(",", ".")));
                 } else {
+                    ppcContext.getAmostraVARTO().setTara(0D);
+                }
 
-                    AlertDialog.Builder alerta = new AlertDialog.Builder(TaraActivity.this);
-                    alerta.setTitle("ATENÇÃO");
-                    alerta.setMessage("POR FAVOR, INSIRA O PESO TARA.");
-
-                    alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
-                            editTextPadrao.setText("");
-                        }
-                    });
-                    alerta.show();
-
+                if (ppcContext.getTipoCabecalho() == 1L) {
+                    Intent it = new Intent(TaraActivity.this, ToleteActivity.class);
+                    startActivity(it);
+                    finish();
+                } else if (ppcContext.getTipoCabecalho() == 2L) {
+                    ppcContext.getAmostraVARTO().setTolete(0D);
+                    Intent it = new Intent(TaraActivity.this, CanaInteiraActivity.class);
+                    startActivity(it);
+                    finish();
                 }
 
             }
@@ -65,12 +51,12 @@ public class TaraActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if (editTextPadrao.getText().toString().length() > 0) {
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 } else {
                     Intent it = new Intent(TaraActivity.this, CabecalhoActivity.class);
                     startActivity(it);
+                    finish();
                 }
             }
         });

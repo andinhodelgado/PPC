@@ -22,8 +22,8 @@ public class Auditor3Activity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkAuditor3 = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancAuditor3 = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkAuditor3 = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancAuditor3 = findViewById(R.id.buttonCancPadrao);
 
         buttonOkAuditor3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +44,7 @@ public class Auditor3Activity extends ActivityGeneric {
                             PPCContext.getCabecalhoVARTO().setAuditor3(auditor);
                             Intent it = new Intent(Auditor3Activity.this, DataActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
                         else{
@@ -55,7 +56,6 @@ public class Auditor3Activity extends ActivityGeneric {
                             alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // TODO Auto-generated method stub
                                     editTextPadrao.setText("");
                                 }
                             });
@@ -73,7 +73,6 @@ public class Auditor3Activity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -87,6 +86,7 @@ public class Auditor3Activity extends ActivityGeneric {
                     PPCContext.getCabecalhoVARTO().setAuditor3(0L);
                     Intent it = new Intent(Auditor3Activity.this, DataActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
 
@@ -98,13 +98,13 @@ public class Auditor3Activity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
                 else{
                     Intent it = new Intent(Auditor3Activity.this, Auditor2Activity.class);
                     startActivity(it);
+                    finish();
                 }
             }
 

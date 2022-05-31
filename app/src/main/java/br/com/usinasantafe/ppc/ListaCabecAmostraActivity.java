@@ -38,9 +38,9 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
             @Override
             public void onClick(View v) {
 
-                // TODO Auto-generated method stub
                 Intent it = new Intent(ListaCabecAmostraActivity.this, ListaTipoApontActivity.class);
                 startActivity(it);
+                finish();
 
             }
 
@@ -74,7 +74,7 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
         }
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaCabecAmostra);
+        lista = findViewById(R.id.listaCabecAmostra);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,7 +83,6 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
 
-                // TODO Auto-generated method stub
                 if(qtdeCabecalho > 0){
 
                     CabecalhoVARTO cabecalhoVARTO = (CabecalhoVARTO) listaDados.get(position);
@@ -106,10 +105,10 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
                         alerta.setPositiveButton("INSERIR", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
 
                                 Intent it = new Intent(ListaCabecAmostraActivity.this, CabecalhoActivity.class);
                                 startActivity(it);
+                                finish();
 
                             }
                         });
@@ -117,10 +116,10 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
                         alerta.setNegativeButton("FINALIZAR", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
 
                                 Intent it = new Intent(ListaCabecAmostraActivity.this, MsgFecharAnaliseActivity.class);
                                 startActivity(it);
+                                finish();
 
                             }
                         });
@@ -133,6 +132,7 @@ public class ListaCabecAmostraActivity extends ActivityGeneric {
 
                         Intent it = new Intent(ListaCabecAmostraActivity.this, MsgFecharAnaliseActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
 

@@ -16,8 +16,8 @@ public class TalhaoActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkTalhao = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancTalhao = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkTalhao = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancTalhao = findViewById(R.id.buttonCancPadrao);
 
         buttonOkTalhao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +28,7 @@ public class TalhaoActivity extends ActivityGeneric {
                     PPCContext.getCabecalhoVARTO().setTalhao(Long.parseLong(editTextPadrao.getText().toString()));
                     Intent it = new Intent(TalhaoActivity.this, OSActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
 
@@ -43,6 +44,7 @@ public class TalhaoActivity extends ActivityGeneric {
                 } else {
                     Intent it = new Intent(TalhaoActivity.this, SecaoActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }

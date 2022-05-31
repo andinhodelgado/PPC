@@ -18,14 +18,13 @@ public class RepiqueActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkRepique = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancRepique = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkRepique = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancRepique = findViewById(R.id.buttonCancPadrao);
 
         buttonOkRepique.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 if (!editTextPadrao.getText().toString().equals("")) {
 
@@ -48,7 +47,6 @@ public class RepiqueActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -72,12 +70,12 @@ public class RepiqueActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if (editTextPadrao.getText().toString().length() > 0) {
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 } else {
                     Intent it = new Intent(RepiqueActivity.this, PedacoActivity.class);
                     startActivity(it);
+                    finish();
                 }
             }
         });

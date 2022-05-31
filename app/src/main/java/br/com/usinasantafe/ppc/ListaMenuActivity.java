@@ -22,7 +22,7 @@ public class ListaMenuActivity extends Activity {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonRetMenu = (Button) findViewById(R.id.buttonRetTipoApont);
+        Button buttonRetMenu = findViewById(R.id.buttonRetTipoApont);
 
         listarMenu();
 
@@ -31,6 +31,7 @@ public class ListaMenuActivity extends Activity {
             public void onClick(View v) {
                 Intent it = new Intent(ListaMenuActivity.this, ListaCabecalhoActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 
@@ -44,7 +45,7 @@ public class ListaMenuActivity extends Activity {
         itens.add("MANUAL");
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaMenu);
+        lista = findViewById(R.id.listaMenu);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,7 +53,6 @@ public class ListaMenuActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
-                // TODO Auto-generated method stub
                 if(position == 0){
                     PPCContext.getCabecalhoVARTO().setTipo(1L);
                 }
@@ -62,7 +62,7 @@ public class ListaMenuActivity extends Activity {
 
                 Intent it = new Intent(ListaMenuActivity.this, Auditor1Activity.class);
                 startActivity(it);
-
+                finish();
             }
 
         });

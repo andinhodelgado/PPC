@@ -32,10 +32,10 @@ public class MsgFecharAnaliseActivity extends Activity {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkMsgFecharAnalise = (Button) findViewById(R.id.buttonOKMsgFecharAnalise);
-        Button buttonCancMsgFecharAnalise = (Button) findViewById(R.id.buttonCancMsgFecharAnalise);
+        Button buttonOkMsgFecharAnalise = findViewById(R.id.buttonOKMsgFecharAnalise);
+        Button buttonCancMsgFecharAnalise = findViewById(R.id.buttonCancMsgFecharAnalise);
 
-        TextView textViewMsgFecharAnalise = (TextView) findViewById(R.id.textViewMsgFecharAnalise);
+        TextView textViewMsgFecharAnalise = findViewById(R.id.textViewMsgFecharAnalise);
 
         AmostraVARTO amostraVARTO = new AmostraVARTO();
         listAmostra = amostraVARTO.get("idCabecalho", PPCContext.getAmostraVARTO().getIdCabecalho());
@@ -78,6 +78,7 @@ public class MsgFecharAnaliseActivity extends Activity {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent it = new Intent(MsgFecharAnaliseActivity.this, ListaTipoApontActivity.class);
                             startActivity(it);
+                            finish();
                         }
                     });
 
@@ -92,6 +93,7 @@ public class MsgFecharAnaliseActivity extends Activity {
             public void onClick(View v) {
                 Intent it = new Intent(MsgFecharAnaliseActivity.this, ListaTipoApontActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 

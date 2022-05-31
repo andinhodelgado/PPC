@@ -17,10 +17,10 @@ public class DataActivity extends ActivityGeneric {
         setContentView(R.layout.activity_data);
 
         PPCContext = (PPCContext) getApplication();
-        datePickerData = (DatePicker) findViewById(R.id.datePickerData);
+        datePickerData = findViewById(R.id.datePickerData);
 
-        Button buttonOkData = (Button) findViewById(R.id.buttonOkData);
-        Button buttonCancData = (Button) findViewById(R.id.buttonCancData);
+        Button buttonOkData = findViewById(R.id.buttonOkData);
+        Button buttonCancData = findViewById(R.id.buttonCancData);
 
         buttonOkData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +36,7 @@ public class DataActivity extends ActivityGeneric {
 
                 Intent it = new Intent(DataActivity.this, TurnoActivity.class);
                 startActivity(it);
+                finish();
 
             }
         });
@@ -45,6 +46,7 @@ public class DataActivity extends ActivityGeneric {
             public void onClick(View v) {
                 Intent it = new Intent(DataActivity.this, Auditor3Activity.class);
                 startActivity(it);
+                finish();
             }
         });
 

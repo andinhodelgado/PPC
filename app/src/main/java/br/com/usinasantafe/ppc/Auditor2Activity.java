@@ -43,6 +43,7 @@ public class Auditor2Activity extends ActivityGeneric {
                             PPCContext.getCabecalhoVARTO().setAuditor2(auditor);
                             Intent it = new Intent(Auditor2Activity.this, Auditor3Activity.class);
                             startActivity(it);
+                            finish();
 
                         }
                         else{
@@ -54,7 +55,6 @@ public class Auditor2Activity extends ActivityGeneric {
                             alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // TODO Auto-generated method stub
                                     editTextPadrao.setText("");
                                 }
                             });
@@ -72,7 +72,6 @@ public class Auditor2Activity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -90,7 +89,6 @@ public class Auditor2Activity extends ActivityGeneric {
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
                             editTextPadrao.setText("");
                         }
                     });
@@ -106,13 +104,13 @@ public class Auditor2Activity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
                 else{
                     Intent it = new Intent(Auditor2Activity.this, Auditor1Activity.class);
                     startActivity(it);
+                    finish();
                 }
             }
 

@@ -22,14 +22,13 @@ public class PonteiroActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkPonteiro = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancPonteiro = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkPonteiro = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancPonteiro = findViewById(R.id.buttonCancPadrao);
 
         buttonOkPonteiro.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 if(!editTextPadrao.getText().toString().equals("")){
 
@@ -42,6 +41,7 @@ public class PonteiroActivity extends ActivityGeneric {
                         if(PPCContext.getTipoCabecalho() == 1L){
                             Intent it = new Intent(PonteiroActivity.this, LascasActivity.class);
                             startActivity(it);
+                            finish();
                         }
                         else if(PPCContext.getTipoCabecalho() == 2L){
 
@@ -56,10 +56,10 @@ public class PonteiroActivity extends ActivityGeneric {
                             alerta.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // TODO Auto-generated method stub
 
                                     Intent it = new Intent(PonteiroActivity.this, ListaObservacaoActivity.class);
                                     startActivity(it);
+                                    finish();
 
                                 }
                             });
@@ -67,7 +67,6 @@ public class PonteiroActivity extends ActivityGeneric {
                             alerta.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // TODO Auto-generated method stub
 
                                     PPCContext.getAmostraVARTO().setObsv("null");
                                     AmostraVARTO amostraVARTO = new AmostraVARTO();
@@ -98,6 +97,7 @@ public class PonteiroActivity extends ActivityGeneric {
 
                                     Intent it = new Intent(PonteiroActivity.this, MsgFecharAnaliseActivity.class);
                                     startActivity(it);
+                                    finish();
 
                                 }
                             });
@@ -116,7 +116,6 @@ public class PonteiroActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -132,6 +131,7 @@ public class PonteiroActivity extends ActivityGeneric {
 
                         Intent it = new Intent(PonteiroActivity.this, LascasActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                     else if(PPCContext.getTipoCabecalho() == 2L){
@@ -147,10 +147,10 @@ public class PonteiroActivity extends ActivityGeneric {
                         alerta.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
 
                                 Intent it = new Intent(PonteiroActivity.this, ListaObservacaoActivity.class);
                                 startActivity(it);
+                                finish();
 
                             }
                         });
@@ -158,20 +158,19 @@ public class PonteiroActivity extends ActivityGeneric {
                         alerta.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
 
                                 PPCContext.getAmostraVARTO().setObsv("null");
                                 AmostraVARTO amostraVARTO = new AmostraVARTO();
 
                                 if(!amostraVARTO.hasElements()){
-                                    PPCContext.getAmostraVARTO().setId((long) 1);
-                                    PPCContext.getAmostraVARTO().setNum((long) 1);
+                                    PPCContext.getAmostraVARTO().setId(1L);
+                                    PPCContext.getAmostraVARTO().setNum(1L);
                                 }
                                 else{
                                     List listAmostra = amostraVARTO.orderBy("id", false);
                                     if(listAmostra.size() == 0){
-                                        PPCContext.getAmostraVARTO().setId((long) 1);
-                                        PPCContext.getAmostraVARTO().setNum((long) 1);
+                                        PPCContext.getAmostraVARTO().setId(1L);
+                                        PPCContext.getAmostraVARTO().setNum(1L);
                                     }
                                     else{
                                         amostraVARTO = (AmostraVARTO) listAmostra.get(0);
@@ -189,6 +188,7 @@ public class PonteiroActivity extends ActivityGeneric {
 
                                 Intent it = new Intent(PonteiroActivity.this, MsgFecharAnaliseActivity.class);
                                 startActivity(it);
+                                finish();
 
                             }
                         });
@@ -206,7 +206,6 @@ public class PonteiroActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
@@ -215,10 +214,12 @@ public class PonteiroActivity extends ActivityGeneric {
                     if(PPCContext.getTipoCabecalho() == 1L){
                         Intent it = new Intent(PonteiroActivity.this, PedacoActivity.class);
                         startActivity(it);
+                        finish();
                     }
                     else if(PPCContext.getTipoCabecalho() == 2L){
                         Intent it = new Intent(PonteiroActivity.this, RepiqueActivity.class);
                         startActivity(it);
+                        finish();
                     }
 
                 }

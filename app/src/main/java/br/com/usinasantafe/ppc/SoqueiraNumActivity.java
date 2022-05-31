@@ -22,14 +22,13 @@ public class SoqueiraNumActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkSoqueiraNum = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancSoqueiraNum = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkSoqueiraNum = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancSoqueiraNum = findViewById(R.id.buttonCancPadrao);
 
         buttonOkSoqueiraNum.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 if(editTextPadrao.getText().toString().length() > 0){
 
@@ -52,10 +51,10 @@ public class SoqueiraNumActivity extends ActivityGeneric {
                 alerta.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
 
                         Intent it = new Intent(SoqueiraNumActivity.this, ListaObservacaoActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                 });
@@ -63,7 +62,6 @@ public class SoqueiraNumActivity extends ActivityGeneric {
                 alerta.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
 
                         PPCContext.getAmostraVARTO().setObsv("null");
                         AmostraVARTO amostraVARTO = new AmostraVARTO();
@@ -94,6 +92,7 @@ public class SoqueiraNumActivity extends ActivityGeneric {
 
                         Intent it = new Intent(SoqueiraNumActivity.this, MsgFecharAnaliseActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                 });
@@ -108,13 +107,13 @@ public class SoqueiraNumActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 if(editTextPadrao.getText().toString().length() > 0){
                     editTextPadrao.setText(editTextPadrao.getText().toString().substring(0, editTextPadrao.getText().toString().length() - 1));
                 }
                 else{
                     Intent it = new Intent(SoqueiraNumActivity.this, SoqueiraKgActivity.class);
                     startActivity(it);
+                    finish();
                 }
             }
         });

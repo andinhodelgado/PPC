@@ -16,8 +16,8 @@ public class SecaoActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkSecao = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancSecao = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkSecao = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancSecao = findViewById(R.id.buttonCancPadrao);
 
         buttonOkSecao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +28,7 @@ public class SecaoActivity extends ActivityGeneric {
                     PPCContext.getCabecalhoVARTO().setSecao(Long.parseLong(editTextPadrao.getText().toString()));
                     Intent it = new Intent(SecaoActivity.this, TalhaoActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
 
@@ -43,6 +44,7 @@ public class SecaoActivity extends ActivityGeneric {
                 } else {
                     Intent it = new Intent(SecaoActivity.this, TurnoActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }

@@ -19,7 +19,7 @@ public class ListaTipoApontActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_tipo_apont);
 
-        Button buttonRetTipoApont = (Button) findViewById(R.id.buttonRetTipoApont);
+        Button buttonRetTipoApont = findViewById(R.id.buttonRetTipoApont);
 
         listarTipoApont();
 
@@ -41,7 +41,7 @@ public class ListaTipoApontActivity extends Activity {
         itens.add("AMOSTRA");
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaTipoApont);
+        lista = findViewById(R.id.listaTipoApont);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -49,14 +49,15 @@ public class ListaTipoApontActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
-                // TODO Auto-generated method stub
                 if(position == 0){
                     Intent it = new Intent(ListaTipoApontActivity.this, ListaCabecalhoActivity.class);
                     startActivity(it);
+                    finish();
                 }
                 else if(position == 1){
                     Intent it = new Intent(ListaTipoApontActivity.this, ListaCabecAmostraActivity.class);
                     startActivity(it);
+                    finish();
                 }
             }
 

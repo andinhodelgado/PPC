@@ -21,7 +21,7 @@ public class TurnoActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonRetTurno = (Button) findViewById(R.id.buttonRetTurno);
+        Button buttonRetTurno = findViewById(R.id.buttonRetTurno);
 
         listarTurno();
 
@@ -29,9 +29,9 @@ public class TurnoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 Intent it = new Intent(TurnoActivity.this, DataActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 
@@ -46,7 +46,7 @@ public class TurnoActivity extends ActivityGeneric {
         itens.add("TURNO 3");
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaTurno);
+        lista = findViewById(R.id.listaTurno);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -54,12 +54,13 @@ public class TurnoActivity extends ActivityGeneric {
             @Override
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
-                // TODO Auto-generated method stub
+
                 if(position == 0){
 
                     PPCContext.getCabecalhoVARTO().setTurno(1L);
                     Intent it = new Intent(TurnoActivity.this, SecaoActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
                 else if(position == 1){
@@ -67,6 +68,7 @@ public class TurnoActivity extends ActivityGeneric {
                     PPCContext.getCabecalhoVARTO().setTurno(2L);
                     Intent it = new Intent(TurnoActivity.this, SecaoActivity.class);
                     startActivity(it);
+                    finish();
 
                 }
                 else if(position == 2){
@@ -74,6 +76,8 @@ public class TurnoActivity extends ActivityGeneric {
                     PPCContext.getCabecalhoVARTO().setTurno(3L);
                     Intent it = new Intent(TurnoActivity.this, SecaoActivity.class);
                     startActivity(it);
+                    finish();
+
                 }
             }
 

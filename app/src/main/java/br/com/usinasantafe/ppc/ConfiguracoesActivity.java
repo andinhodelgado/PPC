@@ -20,13 +20,12 @@ public class ConfiguracoesActivity extends ActivityGeneric  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracoes);
 
-        Button btAtualBDConfig = (Button) findViewById(R.id.buttonAtualizarDados);
-        Button buttonRetConfig = (Button) findViewById(R.id.buttonRetConfig);
+        Button btAtualBDConfig = findViewById(R.id.buttonAtualizarDados);
+        Button buttonRetConfig = findViewById(R.id.buttonRetConfig);
 
         btAtualBDConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 ConexaoWeb conexaoWeb = new ConexaoWeb();
 
@@ -52,7 +51,6 @@ public class ConfiguracoesActivity extends ActivityGeneric  {
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
 
                         }
                     });
@@ -66,9 +64,9 @@ public class ConfiguracoesActivity extends ActivityGeneric  {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 Intent it = new Intent(ConfiguracoesActivity.this, PrincipalActivity.class);
                 startActivity(it);
+                finish();
             }
 
         });
@@ -77,7 +75,6 @@ public class ConfiguracoesActivity extends ActivityGeneric  {
 //
 //            @Override
 //            public void onClick(View v) {
-//                // TODO Auto-generated method stub
 //
 //                try{
 //

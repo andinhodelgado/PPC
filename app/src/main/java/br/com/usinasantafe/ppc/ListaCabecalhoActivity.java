@@ -37,11 +37,9 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-
-                // TODO Auto-generated method stub
                 Intent it = new Intent(ListaCabecalhoActivity.this, ListaMenuActivity.class);
                 startActivity(it);
-
+                finish();
             }
 
         });
@@ -50,11 +48,9 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-
-                // TODO Auto-generated method stub
                 Intent it = new Intent(ListaCabecalhoActivity.this, ListaTipoApontActivity.class);
                 startActivity(it);
-
+                finish();
             }
         });
 
@@ -88,7 +84,7 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
         }
 
         AdapterList adapterList = new AdapterList(this, itens);
-        lista = (ListView) findViewById(R.id.listaCabecalho);
+        lista = findViewById(R.id.listaCabecalho);
         lista.setAdapter(adapterList);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -96,8 +92,6 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
             @Override
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
-                // TODO Auto-generated method stub
-
                 CabecalhoVARTO cabecalhoVARTO = new CabecalhoVARTO();
                 int qtde = cabecalhoVARTO.get("status", 1L).size();
 
@@ -112,7 +106,6 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
                     alerta.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
 
                             CabecalhoVARTO cabecalhoVARTO = (CabecalhoVARTO) listaDados.get(posicao);
                             AmostraVARTO amostraVARTO = new AmostraVARTO();
@@ -121,6 +114,7 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
 
                             Intent it = new Intent(ListaCabecalhoActivity.this, ListaCabecalhoActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
 
@@ -129,7 +123,6 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
                     alerta.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO Auto-generated method stub
 
                         }
                     });

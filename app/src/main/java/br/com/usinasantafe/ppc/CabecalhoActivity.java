@@ -55,7 +55,6 @@ public class CabecalhoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
 
                 AmostraVARTO amostraVARTO = new AmostraVARTO();
                 List listaAmostra = amostraVARTO.get("idCabecalho", PPCContext.getAmostraVARTO().getIdCabecalho());
@@ -63,10 +62,12 @@ public class CabecalhoActivity extends ActivityGeneric {
                 if(listaAmostra.size() < 4){
                     Intent it = new Intent(CabecalhoActivity.this, TaraActivity.class);
                     startActivity(it);
+                    finish();
                 }
                 else{
                     Intent it = new Intent(CabecalhoActivity.this, MsgFecharAnaliseActivity.class);
                     startActivity(it);
+                    finish();
                 }
 
             }
@@ -76,9 +77,9 @@ public class CabecalhoActivity extends ActivityGeneric {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 Intent it = new Intent(CabecalhoActivity.this, ListaCabecAmostraActivity.class);
                 startActivity(it);
+                finish();
             }
         });
 

@@ -41,41 +41,37 @@ public class PrincipalActivity extends ActivityGeneric {
             @Override
             public void onItemClick(AdapterView<?> l, View v, int position,
                                     long id) {
-                // TODO Auto-generated method stub
+
                 if(position == 0){
 
                     AuditorESTTO auditorESTTO = new AuditorESTTO();
                     if(auditorESTTO.hasElements()){
                         Intent it = new Intent(PrincipalActivity.this, ListaTipoApontActivity.class);
                         startActivity(it);
+                        finish();
                     }
 
                 }
                 else if(position == 1){
-
                     Intent it = new Intent(PrincipalActivity.this, ConfiguracoesActivity.class);
                     startActivity(it);
-
+                    finish();
                 }
                 else if(position == 2){
-
                     Intent it = new Intent(PrincipalActivity.this, EnvioDadosActivity.class);
                     startActivity(it);
-
+                    finish();
                 }
                 else if(position == 3){
-
                     Intent intent = new Intent(Intent.ACTION_MAIN);
                     intent.addCategory(Intent.CATEGORY_HOME);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-
                 }
                 else if(position == 4){
-
                     Intent it = new Intent(PrincipalActivity.this, CameraActivity.class);
                     startActivity(it);
-
+                    finish();
                 }
             }
 

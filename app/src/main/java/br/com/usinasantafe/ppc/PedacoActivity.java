@@ -18,15 +18,13 @@ public class PedacoActivity extends ActivityGeneric {
 
         PPCContext = (PPCContext) getApplication();
 
-        Button buttonOkPedaco = (Button) findViewById(R.id.buttonOkPadrao);
-        Button buttonCancPedaco = (Button) findViewById(R.id.buttonCancPadrao);
+        Button buttonOkPedaco = findViewById(R.id.buttonOkPadrao);
+        Button buttonCancPedaco = findViewById(R.id.buttonCancPadrao);
 
         buttonOkPedaco.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-
 
                 if(!editTextPadrao.getText().toString().equals("")){
 
@@ -42,12 +40,14 @@ public class PedacoActivity extends ActivityGeneric {
                             PPCContext.getAmostraVARTO().setRepique(0D);
                             Intent it = new Intent(PedacoActivity.this, PonteiroActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
                         else if(PPCContext.getTipoCabecalho() == 2L){
 
                             Intent it = new Intent(PedacoActivity.this, RepiqueActivity.class);
                             startActivity(it);
+                            finish();
 
                         }
 
@@ -61,7 +61,6 @@ public class PedacoActivity extends ActivityGeneric {
                         alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                // TODO Auto-generated method stub
                                 editTextPadrao.setText("");
                             }
                         });
@@ -79,6 +78,7 @@ public class PedacoActivity extends ActivityGeneric {
                         PPCContext.getAmostraVARTO().setPedaco(0D);
                         Intent it = new Intent(PedacoActivity.this, PonteiroActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
                     else if(PPCContext.getTipoCabecalho() == 2L){
@@ -86,6 +86,7 @@ public class PedacoActivity extends ActivityGeneric {
                         PPCContext.getAmostraVARTO().setPedaco(0D);
                         Intent it = new Intent(PedacoActivity.this, RepiqueActivity.class);
                         startActivity(it);
+                        finish();
 
                     }
 
