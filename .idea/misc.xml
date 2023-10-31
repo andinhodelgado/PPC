@@ -3,11 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_auditor.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_cabecalho.xml" value="0.18802083333333333" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_configuracoes.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_detalhes_cabecalho.xml" value="0.18802083333333333" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_item_lista.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_amostra.xml" value="0.2547945205479452" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_cabecalho.xml" value="0.18802083333333333" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_observacao.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_tipo_apont.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_msg_fechar_analise.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/layout_botoes.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/layout_botoes_virgula.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/anderson/Documents/Android/PPC/app/src/main/res/layout/activity_data.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/anderson/Documents/Android/PPC/app/src/main/res/layout/activity_principal.xml" value="0.15572916666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

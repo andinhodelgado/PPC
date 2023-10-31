@@ -9,43 +9,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ListaCabecalhoActivity">
+    tools:context=".view.ListaCabecalhoActivity">
 
     <TextView
-        android:id="@+id/textViewCabecalho"
+        android:id="@+id/textViewDetalheCabecalho"
         style="@style/TextViewTituloLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/texto_lista_cabecalho" />
+        android:text="@string/texto_titulo_cabecalho" />
 
     <ListView
-        android:id="@+id/listaCabecalho"
+        android:id="@+id/cabecalhoListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" >
     </ListView>
 
-    <LinearLayout
-        android:id="@+id/rightRelativeLayout"
+    <Button
+        android:id="@+id/buttonInserirCabecalho"
+        style="@style/BotaoAvulso"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:text="@string/texto_padrao_inserir_cabec" />
 
-        <Button
-            android:id="@+id/buttonInsListaCabecalho"
-            style="@style/BotaoAvulso"
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_padrao_inserir" />
-
-        <Button
-            android:id="@+id/buttonVoltaListaCabecalho"
-            style="@style/BotaoAvulso"
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_padrao_voltar" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/buttonRetListaCabecalho"
+        style="@style/BotaoAvulso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_padrao_retornar" />
 
 </LinearLayout>

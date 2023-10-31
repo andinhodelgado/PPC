@@ -43,6 +43,7 @@
     <string name="texto_msg_cabecalho">CABEÇALHO</string>
     <string name="texto_padrao_salvar">SALVAR</string>
     <string name="texto_padrao_cancelar">CANCELAR</string>
+    <string name="texto_padrao_retornar">RETORNAR</string>
     <string name="title_activity_tara">TARA</string>
     <string name="texto_tara">TARA (KG):</string>
     <string name="title_activity_tolete">TOLETE</string>
@@ -65,14 +66,14 @@
     <string name="texto_soqueira_num">SOQUEIRA (NUM):</string>
     <string name="title_activity_msg_observacao">MSG OBSERVAÇÃO</string>
     <string name="texto_msg_observ">OBSERVAÇÕES</string>
-    <string name="title_activity_cabecalho">CABEÇALHO</string>
-    <string name="texto_lista_cabecalho">CABEÇALHO</string>
-    <string name="title_activity_lista_cabecalho">CABEÇALHOS</string>
+    <string name="texto_titulo_lista_cabecalho">CABEÇALHO(S)</string>
+    <string name="texto_titulo_cabecalho">CABEÇALHO</string>
+    <string name="texto_titulo_lista_amostra">AMOSTRA(S)</string>
     <string name="texto_padrao_inserir">INSERIR</string>
+    <string name="texto_padrao_inserir_amostra">INSERIR AMOSTRA</string>
     <string name="texto_padrao_voltar">VOLTAR</string>
     <string name="texto_inf_cabecalho">TESTE</string>
     <string name="title_activity_configuracoes">CONFIGURAÇÕES</string>
-    <string name="title_activity_lista_cabec_amostra">LISTA CABEÇALHO-AMOSTRA</string>
     <string name="texto_padrao_sim">SIM</string>
     <string name="texto_padrao_nao">NÃO</string>
     <string name="title_activity_envio_dados">ENVIO DE DADOS</string>
@@ -86,4 +87,7 @@
     <string name="texto_lista_tipo_apont">TIPO</string>
     <string name="texto_menu_principal">PRINCIPAL - V 1.01</string>
     <string name="texto_item_list">TESTE</string>
+    <string name="texto_padrao_fechar">FECHAR</string>
+    <string name="texto_padrao_excluir">EXCLUIR</string>
+    <string name="texto_nro_aparelho_config">NRO APARELHO:</string>
 </resources>

@@ -22,137 +22,150 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrincipalActivity"
+        <activity
+            android:name=".view.MenuInicialActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TurnoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ListaTurnoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ToleteActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ToleteActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".TocoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.TocoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".TaraActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.TaraActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".TalhaoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.TalhaoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".SoqueiraNumActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.SecaoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".SoqueiraKgActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.RepiqueActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".SecaoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.PonteiroActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".RepiqueActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.PedacoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".PonteiroActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.OSActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".PedacoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.OperadorActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".OSActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ListaObservacaoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".OperadorActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ListaTipoColheitaActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".MsgFecharAnaliseActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ListaAmostraActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListaTipoApontActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ListaCabecalhoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListaObservacaoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.LascasActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListaMenuActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.FrenteActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListaCabecAmostraActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.EnvioDadosActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ListaCabecalhoActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.DataActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".LascasActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ConfigActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".FrenteActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.ColhedoraActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".EnvioDadosActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.CanaInteiraActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".DataActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.CameraActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ConfiguracoesActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.DetalhesCabecalhoActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".ColhedoraActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.Auditor3Activity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".CanaInteiraActivity"
-            android:exported="false"
+        <activity
+            android:name=".view.Auditor2Activity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".CameraActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".CabecalhoActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Auditor3Activity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Auditor2Activity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Auditor1Activity"
-            android:exported="false"
+        <activity
+            android:name=".view.Auditor1Activity"
+            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
     </application>
