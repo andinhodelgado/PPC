@@ -41,7 +41,7 @@ public class ListaCabecalhoActivity extends ActivityGeneric {
             cabecList = ppcContext.getPerdaCTR().cabecAbertoList();
 
             for(CabecalhoBean cabecalhoBean : cabecList) {
-                itens.add(String.valueOf(cabecalhoBean.getCodColhedoraCabec()));
+                itens.add("COLHEDORA " + cabecalhoBean.getNroColhedoraCabec());
             }
 
         }

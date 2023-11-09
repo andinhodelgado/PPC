@@ -23,8 +23,6 @@ public class CabecalhoBean extends Entidade {
 	@DatabaseField
     private String dthrCabec;
 	@DatabaseField
-    private String dthrEnvioCabec;
-	@DatabaseField
     private Long nroTurnoCabec;
 	@DatabaseField
     private Long codSecaoCabec;
@@ -35,7 +33,7 @@ public class CabecalhoBean extends Entidade {
 	@DatabaseField
     private Long codFrenteCabec;
 	@DatabaseField
-    private Long codColhedoraCabec;
+    private Long nroColhedoraCabec;
 	@DatabaseField
     private Long matricOperadorCabec;
 	@DatabaseField
@@ -92,14 +90,6 @@ public class CabecalhoBean extends Entidade {
 		this.dthrCabec = dthrCabec;
 	}
 
-	public String getDthrEnvioCabec() {
-		return dthrEnvioCabec;
-	}
-
-	public void setDthrEnvioCabec(String dthrEnvioCabec) {
-		this.dthrEnvioCabec = dthrEnvioCabec;
-	}
-
 	public Long getNroTurnoCabec() {
 		return nroTurnoCabec;
 	}
@@ -140,12 +130,12 @@ public class CabecalhoBean extends Entidade {
 		this.codFrenteCabec = codFrenteCabec;
 	}
 
-	public Long getCodColhedoraCabec() {
-		return codColhedoraCabec;
+	public Long getNroColhedoraCabec() {
+		return nroColhedoraCabec;
 	}
 
-	public void setCodColhedoraCabec(Long codColhedoraCabec) {
-		this.codColhedoraCabec = codColhedoraCabec;
+	public void setNroColhedoraCabec(Long nroColhedoraCabec) {
+		this.nroColhedoraCabec = nroColhedoraCabec;
 	}
 
 	public Long getMatricOperadorCabec() {

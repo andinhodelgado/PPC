@@ -32,7 +32,7 @@ public class AmostraDAO {
 
     public int qtdeAmostra(Long idCabecAmostra){
         List<AmostraBean> amostraList = getAmostraList(idCabecAmostra);
-        int ret = amostraList.size() + 1;
+        int ret = amostraList.size();
         amostraList.clear();
         return ret;
     }
@@ -42,7 +42,7 @@ public class AmostraDAO {
         amostraBean.insert();
     }
 
-    public void delAmostraId(Long idAmostra){
+    public void deleteAmostraId(Long idAmostra){
 
         ArrayList pesqArrayList = new ArrayList();
         pesqArrayList.add(getPesqIdAmostra(idAmostra));
@@ -56,7 +56,7 @@ public class AmostraDAO {
 
     }
 
-    public void delAmostraIdCabec(Long idCabec){
+    public void deleteAmostraIdCabec(Long idCabec){
 
         ArrayList pesqArrayList = new ArrayList();
         pesqArrayList.add(getPesqIdCabecAmostra(idCabec));
@@ -72,22 +72,6 @@ public class AmostraDAO {
 
     }
 
-    public AmostraBean getAmostra(Long idCabecPerda, Long seqAmostra){
-
-        ArrayList pesqArrayList = new ArrayList();
-        pesqArrayList.add(getPesqIdCabecAmostra(idCabecPerda));
-        pesqArrayList.add(getPesqSeqAmostra(seqAmostra));
-        AmostraBean amostraBean = new AmostraBean();
-        List<AmostraBean> amostraBeanList = amostraBean.get(pesqArrayList);
-        pesqArrayList.clear();
-
-        amostraBean = amostraBeanList.get(0);
-        amostraBeanList.clear();
-
-        return amostraBean;
-
-    }
-
     public List<AmostraBean> getAmostraList(Long idCabec){
         ArrayList pesqArrayList = new ArrayList();
         pesqArrayList.add(getPesqIdCabecAmostra(idCabec));
@@ -100,17 +84,6 @@ public class AmostraDAO {
         pesqArrayList.add(getPesqIdCabecAmostra(idCabec));
         AmostraBean amostraBean = new AmostraBean();
         return amostraBean.get(pesqArrayList).size();
-    }
-
-    public List<AmostraBean> amostraListEnvio(){
-
-    }
-
-    public void delListAmostra(List amostraList){
-        for(int i = 0; i < amostraList.size(); i++) {
-            AmostraBean amostraBean = (AmostraBean) amostraList.get(i);
-            amostraBean.delete();
-        }
     }
 
     public String dadosEnvioAmostra(ArrayList<Long> idCabecList){

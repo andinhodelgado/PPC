@@ -31,20 +31,20 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/buttonSalvarListaObservacao"
-            style="@style/BotaoAvulso"
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_padrao_salvar" />
-
-        <Button
             android:id="@+id/buttonCancListaObservacao"
             style="@style/BotaoAvulso"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_padrao_cancelar" />
+
+        <Button
+            android:id="@+id/buttonSalvarListaObservacao"
+            style="@style/BotaoAvulso"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_padrao_salvar" />
 
     </LinearLayout>
 

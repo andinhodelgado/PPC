@@ -1,6 +1,7 @@
 package br.com.usinasantafe.ppc.view;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -30,13 +31,14 @@ public class ListaAmostraActivity extends ActivityGeneric {
 
         Button buttonRetListaAmostra = findViewById(R.id.buttonRetListaAmostra);
         Button buttonInserirAmostra = findViewById(R.id.buttonInserirAmostra);
+        Button buttonFecharCabecalho = findViewById(R.id.buttonFecharCabecalho);
 
         ArrayList<String> itens = new ArrayList<>();
 
         cabecalhoBean = ppcContext.getPerdaCTR().getCabecDAO().getCabecBean();
         amostraList = ppcContext.getPerdaCTR().getAmostraList(cabecalhoBean.getIdCabec());
 
-        if(amostraList.size() > 0) {
+        if(amostraList.size() == 0) {
             itens.add("NÃO CONTÉM AMOSTRA(S) NESSA ANALISE.");
         } else {
             for(int i = 0; i < amostraList.size(); i++){
@@ -60,7 +62,7 @@ public class ListaAmostraActivity extends ActivityGeneric {
                 alerta.setPositiveButton("SIM", (dialog, which) -> {
 
                     AmostraBean amostraBean = amostraList.get(position);
-                    ppcContext.getPerdaCTR().delAmostraId(amostraBean.getIdAmostra());
+                    ppcContext.getPerdaCTR().deletarAmostraId(amostraBean.getIdAmostra());
 
                     Intent it = new Intent(ListaAmostraActivity.this, ListaAmostraActivity.class);
                     startActivity(it);
@@ -85,6 +87,43 @@ public class ListaAmostraActivity extends ActivityGeneric {
             Intent it = new Intent(ListaAmostraActivity.this, DetalhesCabecalhoActivity.class);
             startActivity(it);
             finish();
+        });
+
+        buttonFecharCabecalho.setOnClickListener(v -> {
+
+            int countAmostra = ppcContext.getPerdaCTR().countAmostraList(cabecalhoBean.getIdCabec());
+
+            AlertDialog.Builder alerta = new AlertDialog.Builder(ListaAmostraActivity.this);
+            alerta.setTitle("ATENÇÃO");
+
+            if(countAmostra >= 1){
+
+                alerta.setMessage("DESEJA REALMENTE FINALIZAR A ANALISE?");
+
+                alerta.setPositiveButton("SIM", (dialog, which) -> {
+
+                    ProgressDialog progressBar = new ProgressDialog(v.getContext());
+                    progressBar.setCancelable(true);
+                    progressBar.setMessage("ENVIANDO DADOS...");
+                    progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progressBar.show();
+
+                    ppcContext.getPerdaCTR().fecharAnalise(cabecalhoBean.getIdCabec(), ListaAmostraActivity.this, ListaCabecalhoActivity.class, progressBar);
+
+                });
+
+                alerta.setNegativeButton("NÃO", (dialog, which) -> {
+                });
+
+            } else {
+
+                alerta.setMessage("POR FAVOR, INSIRA PELO MENOS 1 AMOSTRA NA ANALISE PARA QUE POSSA FINALIZAR A MESMA.");
+                alerta.setPositiveButton("OK", (dialog, which) -> {
+                });
+
+            }
+            alerta.show();
+
         });
 
     }

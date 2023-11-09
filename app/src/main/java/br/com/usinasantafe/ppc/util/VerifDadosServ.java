@@ -50,20 +50,6 @@ public class VerifDadosServ {
 
     }
 
-
-    public void verDados(String dados, String tipo, Context telaAtual, Class telaProx, ProgressDialog progressDialog) {
-
-        urlsConexaoHttp = new UrlsConexaoHttp();
-        this.telaAtual = telaAtual;
-        this.telaProx = telaProx;
-        this.progressDialog = progressDialog;
-        this.dados = dados;
-        this.classe = tipo;
-
-        envioVerif();
-
-    }
-
     public void salvarToken(String dados, Context telaAtual, Class telaProx, ProgressDialog progressDialog) {
 
         this.urlsConexaoHttp = new UrlsConexaoHttp();
@@ -90,29 +76,6 @@ public class VerifDadosServ {
         postVerGenerico.setParametrosPost(parametrosPost);
         postVerGenerico.execute(url);
 
-    }
-
-    public void pulaTela(){
-        if(status < 3){
-            status = 3;
-            this.progressDialog.dismiss();
-            Intent it = new Intent(telaAtual, telaProx);
-            telaAtual.startActivity(it);
-        }
-    }
-
-
-    public void msg(String texto){
-        if(status < 3){
-            status = 3;
-            this.progressDialog.dismiss();
-            AlertDialog.Builder alerta = new AlertDialog.Builder(telaAtual);
-            alerta.setTitle("ATENÇÃO");
-            alerta.setMessage(texto);
-            alerta.setPositiveButton("OK", (dialog, which) -> {
-            });
-            alerta.show();
-        }
     }
 
 }

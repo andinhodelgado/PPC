@@ -9,23 +9,16 @@ public class ColhedoraDAO {
     public ColhedoraDAO() {
     }
 
-    public boolean verifColhedora(Long codColhedora){
-        List<ColhedoraBean> colhedoraList = equipList(codColhedora);
+    public boolean verifColhedora(Long nroColhedora){
+        List<ColhedoraBean> colhedoraList = colhedoraList(nroColhedora);
         boolean ret = colhedoraList.size() > 0;
         colhedoraList.clear();
         return ret;
     }
 
-    public ColhedoraBean getColhedora(Long codColhedora){
-        List<ColhedoraBean> colhedoraList = equipList(codColhedora);
-        ColhedoraBean equipBean = colhedoraList.get(0);
-        colhedoraList.clear();
-        return equipBean;
-    }
-
-    private List<ColhedoraBean> equipList(Long codColhedora){
+    private List<ColhedoraBean> colhedoraList(Long nroColhedora){
         ColhedoraBean colhedoraBean = new ColhedoraBean();
-        List<ColhedoraBean> colhedoraList = colhedoraBean.get("codColhedora", codColhedora);
+        List<ColhedoraBean> colhedoraList = colhedoraBean.get("nroColhedora", nroColhedora);
         return colhedoraList;
     }
 }

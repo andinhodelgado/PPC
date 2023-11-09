@@ -30,13 +30,6 @@ public class CabecalhoDAO {
         this.cabecalhoBean = cabecalhoBean;
     }
 
-    public boolean verifCabecAberto(){
-        List<CabecalhoBean> cabecList = cabecAbertoList();
-        boolean ret = cabecList.size() > 0;
-        cabecList.clear();
-        return ret;
-    }
-
     public boolean verifCabecFechado(){
         List<CabecalhoBean> cabecList = cabecFechadoList();
         boolean ret = cabecList.size() > 0;
@@ -44,18 +37,18 @@ public class CabecalhoDAO {
         return ret;
     }
 
-    public boolean verifCabecFechadoEnviado(){
-        List<CabecalhoBean> cabecList = cabecFechadoEnviadoList();
-        boolean ret = cabecList.size() > 0;
+    public int countCabecFechado(){
+        List<CabecalhoBean> cabecList = cabecFechadoList();
+        int ret = cabecList.size();
         cabecList.clear();
         return ret;
     }
 
-    public boolean verifColhedoraRepetida(Long codColhedora){
+    public boolean verifColhedoraRepetida(Long nroColhedora){
 
         ArrayList pesqArrayList = new ArrayList();
         pesqArrayList.add(getPesqCabecAberto());
-        pesqArrayList.add(getPesqCodColhedora(codColhedora));
+        pesqArrayList.add(getPesqNroColhedora(nroColhedora));
 
         CabecalhoBean cabecalhoBean = new CabecalhoBean();
         List<CabecalhoBean> cabecList = cabecalhoBean.get(pesqArrayList);
@@ -90,9 +83,11 @@ public class CabecalhoDAO {
     public CabecalhoBean getCabecId(Long idCabec){
         ArrayList pesqArrayList = new ArrayList();
         pesqArrayList.add(getPesqIdCabec(idCabec));
-        List<CabecalhoBean> cabecList = cabecAbertoList();
-        CabecalhoBean cabecalhoBean = cabecList.get(0);
+        CabecalhoBean cabecalhoBean = new CabecalhoBean();
+        List<CabecalhoBean> cabecList =  cabecalhoBean.get(pesqArrayList);
+        cabecalhoBean = cabecList.get(0);
         cabecList.clear();
+        pesqArrayList.clear();
         return cabecalhoBean;
     }
 
@@ -108,37 +103,6 @@ public class CabecalhoDAO {
         pesqArrayList.add(getPesqCabecFechado());
         CabecalhoBean cabecalhoBean = new CabecalhoBean();
         return cabecalhoBean.get(pesqArrayList);
-    }
-
-    public List<CabecalhoBean> cabecFechadoEnviadoList(){
-
-        ArrayList pesqArrayList = new ArrayList();
-        pesqArrayList.add(getPesqCabecFechado());
-
-        CabecalhoBean cabecalhoBean = new CabecalhoBean();
-        return cabecalhoBean.get(pesqArrayList);
-    }
-
-    public List<CabecalhoBean> cabecListEnviado(){
-        ArrayList pesqArrayList = new ArrayList();
-        pesqArrayList.add(getPesqCabecEnviado());
-        CabecalhoBean cabecalhoBean = new CabecalhoBean();
-        List<CabecalhoBean> cabecList = cabecalhoBean.getAndOrderBy(pesqArrayList, "idCabec", true);
-        pesqArrayList.clear();
-        return cabecList;
-    }
-
-    public Long excluirCabec(){
-        List<CabecalhoBean> cabecList = cabecListEnviado();
-        int qtdeCEC = cabecList.size();
-        if (qtdeCEC > 10) {
-            CabecalhoBean cabecalhoBean = cabecList.get(0);
-            cabecalhoBean.delete();
-            return cabecalhoBean.getIdCabec();
-        }
-        else{
-            return 0L;
-        }
     }
 
     public String dadosEnvioCabecFechado(){
@@ -181,34 +145,24 @@ public class CabecalhoDAO {
 
     }
 
-    public void updateCabecAberto(String retorno){
+    public ArrayList<CabecalhoBean> cabecalhoArrayList(String objeto) throws Exception {
 
-        try{
+        ArrayList<CabecalhoBean> cabecalhoArrayList = new ArrayList<>();
 
-            int pos1 = retorno.indexOf("_") + 1;
-            String objPrinc = retorno.substring(pos1);
+        JSONObject jObjBolMM = new JSONObject(objeto);
+        JSONArray jsonArrayBolMM = jObjBolMM.getJSONArray("cabec");
 
-            JSONObject jObjCabec = new JSONObject(objPrinc);
-            JSONArray jsonArrayCabec = jObjCabec.getJSONArray("cabec");
+        for (int i = 0; i < jsonArrayBolMM.length(); i++) {
 
+            JSONObject objBol = jsonArrayBolMM.getJSONObject(i);
+            Gson gsonBol = new Gson();
+            CabecalhoBean cabecalhoBean = gsonBol.fromJson(objBol.toString(), CabecalhoBean.class);
 
-            for (int i = 0; i < jsonArrayCabec.length(); i++) {
+            cabecalhoArrayList.add(cabecalhoBean);
 
-                JSONObject objCabec = jsonArrayCabec.getJSONObject(i);
-                Gson gsonCabec = new Gson();
-                CabecalhoBean cabecalhoBean = gsonCabec.fromJson(objCabec.toString(), CabecalhoBean.class);
-
-                List<CabecalhoBean> cabecList = cabecalhoBean.get("idCabec", cabecalhoBean.getIdCabec());
-                CabecalhoBean cabecalhoBeanBD = cabecList.get(0);
-                cabecList.clear();
-
-                cabecalhoBeanBD.setStatusCabec(3L);
-                cabecalhoBeanBD.update();
-
-            }
-
-        } catch(Exception e){
         }
+
+        return cabecalhoArrayList;
 
     }
 
@@ -220,10 +174,10 @@ public class CabecalhoDAO {
         return pesquisa;
     }
 
-    private EspecificaPesquisa getPesqCodColhedora(Long codColhedora){
+    private EspecificaPesquisa getPesqNroColhedora(Long nroColhedora){
         EspecificaPesquisa pesquisa = new EspecificaPesquisa();
-        pesquisa.setCampo("codColhedoraCabec");
-        pesquisa.setValor(codColhedora);
+        pesquisa.setCampo("nroColhedoraCabec");
+        pesquisa.setValor(nroColhedora);
         pesquisa.setTipo(1);
         return pesquisa;
     }
@@ -240,14 +194,6 @@ public class CabecalhoDAO {
         EspecificaPesquisa pesquisa = new EspecificaPesquisa();
         pesquisa.setCampo("statusCabec");
         pesquisa.setValor(2L);
-        pesquisa.setTipo(1);
-        return pesquisa;
-    }
-
-    private EspecificaPesquisa getPesqCabecEnviado(){
-        EspecificaPesquisa pesquisa = new EspecificaPesquisa();
-        pesquisa.setCampo("statusCabec");
-        pesquisa.setValor(3L);
         pesquisa.setTipo(1);
         return pesquisa;
     }

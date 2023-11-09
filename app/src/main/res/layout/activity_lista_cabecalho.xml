@@ -30,7 +30,7 @@
         style="@style/BotaoAvulso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/texto_padrao_inserir_cabec" />
+        android:text="@string/texto_padrao_inserir" />
 
     <Button
         android:id="@+id/buttonRetListaCabecalho"

@@ -105,18 +105,8 @@ public class AtualDadosServ {
 			this.tipoReceb = 1;
 			this.telaAtual = telaAtual;
 			this.progressDialog = progressDialog;
-			tabAtualArrayList = new ArrayList();
-			Class<?> retClasse = Class.forName(urlsConexaoHttp.localUrl);
 
-			for (Field field : retClasse.getDeclaredFields()) {
-				String campo = field.getName();
-				Log.i("PCI", "Campo = " + campo);
-				if(campo.contains("Bean")){
-					tabAtualArrayList.add(campo);
-				}
-
-			}
-
+			allClasses();
 			startAtualizacao();
 
 
@@ -134,18 +124,8 @@ public class AtualDadosServ {
 			this.telaAtual = telaAtual;
 			this.telaProx = telaProx;
 			this.progressDialog = progressDialog;
-			tabAtualArrayList = new ArrayList();
-			Class<?> retClasse = Class.forName(urlsConexaoHttp.localUrl);
 
-			for (Field field : retClasse.getDeclaredFields()) {
-				String campo = field.getName();
-				Log.i("PCI", "Campo = " + campo);
-				if(campo.contains("Bean")){
-					tabAtualArrayList.add(campo);
-				}
-
-			}
-
+			allClasses();
 			startAtualizacao();
 
 		} catch (Exception e) {
@@ -154,6 +134,62 @@ public class AtualDadosServ {
 
 	}
 
+	public void atualGenericoBD(Context telaAtual, Class telaProx, ProgressDialog progressDialog, ArrayList classeArrayList){
+
+		this.telaAtual = telaAtual;
+		this.telaProx = telaProx;
+		this.progressDialog = progressDialog;
+		this.tipoReceb = 1;
+
+		selecionarClasses(classeArrayList);
+		startAtualizacao();
+
+	}
+
+	public void selecionarClasses(ArrayList classeArrayList){
+
+		try {
+
+			tabAtualArrayList = new ArrayList();
+
+			Class<?> retClasse = Class.forName(UrlsConexaoHttp.localUrl);
+
+			for (Field field : retClasse.getDeclaredFields()) {
+				String campo = field.getName();
+				for (int i = 0; i < classeArrayList.size(); i++) {
+					String classe = (String) classeArrayList.get(i);
+					if(campo.equals(classe)){
+						tabAtualArrayList.add(campo);
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			Log.i("PCI", "Erro Manip3 = " + e);
+		}
+
+	}
+
+	public void allClasses(){
+
+		try {
+
+			tabAtualArrayList = new ArrayList();
+
+			Class<?> retClasse = Class.forName(UrlsConexaoHttp.localUrl);
+
+			for (Field field : retClasse.getDeclaredFields()) {
+				String campo = field.getName();
+				if(campo.contains("Bean")){
+					tabAtualArrayList.add(campo);
+				}
+			}
+
+		} catch (Exception e) {
+			Log.i("PCI", "Erro Manip4 = " + e);
+		}
+
+	}
 	public void atualizandoBD(){
 
 		if((this.tipoReceb == 1) || (this.tipoReceb == 3)) {

@@ -1,14 +1,20 @@
 package br.com.usinasantafe.ppc.control;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.usinasantafe.ppc.model.bean.variaveis.AmostraBean;
+import br.com.usinasantafe.ppc.model.bean.variaveis.CabecalhoBean;
 import br.com.usinasantafe.ppc.model.dao.AmostraDAO;
 import br.com.usinasantafe.ppc.model.dao.AuditorDAO;
 import br.com.usinasantafe.ppc.model.dao.CabecalhoDAO;
 import br.com.usinasantafe.ppc.model.dao.ColhedoraDAO;
 import br.com.usinasantafe.ppc.model.dao.OSDAO;
 import br.com.usinasantafe.ppc.model.dao.OperadorDAO;
+import br.com.usinasantafe.ppc.model.dao.TalhaoDAO;
 import br.com.usinasantafe.ppc.util.EnvioDadosServ;
 
 public class PerdaCTR {
@@ -31,19 +37,18 @@ public class PerdaCTR {
         return amostraDAO;
     }
 
-    public void fecharAnalise(Long idCabec){
+    public void fecharAnalise(Long idCabec, Context telaAtual, Class telaProx, ProgressDialog progressDialog){
         CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
         cabecalhoDAO.fecharCabec(idCabec);
 
-        EnvioDadosServ.getInstance().envioDados();
-
+        EnvioDadosServ.getInstance().envioDados(telaAtual, telaProx, progressDialog);
 
     }
 
     public void deletarAnalise(Long idCabec){
         CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
         AmostraDAO amostraDAO = new AmostraDAO();
-        amostraDAO.delAmostraIdCabec(idCabec);
+        amostraDAO.deleteAmostraIdCabec(idCabec);
         cabecalhoDAO.excluirCabec(idCabec);
     }
 
@@ -61,7 +66,35 @@ public class PerdaCTR {
     /////////////////////////////////// CABECALHO ////////////////////////////////////////////////
 
     public boolean verifCabecFechado(){
+        CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
         return cabecalhoDAO.verifCabecFechado();
+    }
+
+    public List<CabecalhoBean> cabecAbertoList(){
+        CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
+        return cabecalhoDAO.cabecAbertoList();
+    }
+
+    public int countCabecFechado() {
+        CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
+        return cabecalhoDAO.countCabecFechado();
+    }
+
+    public void recDados(String result){
+
+        try {
+
+            String[] retorno = result.split("_");
+            CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
+            ArrayList<CabecalhoBean> cabecalhoArrayList = cabecalhoDAO.cabecalhoArrayList(retorno[1]);
+            for(CabecalhoBean cabecalhoBean : cabecalhoArrayList) {
+                deletarAnalise(cabecalhoBean.getIdCabec());
+            }
+
+        } catch (Exception e){
+            EnvioDadosServ.status = 1;
+            EnvioDadosServ.getInstance().msgFalhaEnvio();
+        }
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,9 +125,9 @@ public class PerdaCTR {
         return amostraDAO.countAmostraList(idCabec);
     }
 
-    public void delAmostraId(Long idAmostra){
+    public void deletarAmostraId(Long idAmostra){
         AmostraDAO amostraDAO = new AmostraDAO();
-        amostraDAO.delAmostraId(idAmostra);
+        amostraDAO.deleteAmostraId(idAmostra);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,7 +150,7 @@ public class PerdaCTR {
 
     public boolean verifOS(Long nroOS){
         OSDAO osDAO = new OSDAO();
-        return osDAO.verifOS(nroOS);
+        return osDAO.verifNroOS(nroOS, osDAO.getIdSecao(getCabecDAO().getCabecBean().getCodSecaoCabec()));
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,9 +162,9 @@ public class PerdaCTR {
         return colhedoraDAO.verifColhedora(codColhedora);
     }
 
-    public boolean verifColhedoraRepetido(Long codColhedora){
+    public boolean verifColhedoraRepetido(Long nroColhedora){
         CabecalhoDAO cabecalhoDAO = new CabecalhoDAO();
-        return cabecalhoDAO.verifColhedoraRepetida(codColhedora);
+        return cabecalhoDAO.verifColhedoraRepetida(nroColhedora);
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -141,6 +174,25 @@ public class PerdaCTR {
     public boolean verifOperador(Long matricAuditor){
         OperadorDAO operadorDAO = new OperadorDAO();
         return operadorDAO.verifOperador(matricAuditor);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////// SECÃO /////////////////////////////////////////////////
+
+    public boolean verifSecao(Long codSecao){
+        OSDAO osDAO = new OSDAO();
+        return osDAO.verifCodSecao(codSecao);
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////// TALHÃO ////////////////////////////////////////////////
+
+    public boolean verifTalhao(Long codTalhao){
+        OSDAO osDAO = new OSDAO();
+        TalhaoDAO talhaoDAO = new TalhaoDAO();
+        return talhaoDAO.verifTalhao(codTalhao, osDAO.getIdSecao(getCabecDAO().getCabecBean().getCodSecaoCabec()));
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////

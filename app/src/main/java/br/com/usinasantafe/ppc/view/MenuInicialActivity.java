@@ -1,6 +1,7 @@
 package br.com.usinasantafe.ppc.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,16 +16,20 @@ public class MenuInicialActivity extends ActivityGeneric {
 
     private ListView menuInicialListView;
     private PPCContext ppcContext;
+    private TextView textViewProcesso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_inicial);
+        textViewProcesso = findViewById(R.id.textViewProcesso);
         TextView textViewPrincipal = findViewById(R.id.textViewPrincipal);
 
         textViewPrincipal.setText("PRINCIPAL - V " + BuildConfig.VERSION_NAME);
 
         ppcContext = (PPCContext) getApplication();
+
+        verifEnvio();
 
         ArrayList<String> itens = new ArrayList<>();
 
@@ -62,6 +67,7 @@ public class MenuInicialActivity extends ActivityGeneric {
                     it = new Intent(MenuInicialActivity.this, EnvioDadosActivity.class);
                     startActivity(it);
                     finish();
+                    break;
                 }
                 case "SAIR": {
                     it = new Intent(Intent.ACTION_MAIN);
@@ -77,6 +83,16 @@ public class MenuInicialActivity extends ActivityGeneric {
     }
 
     public void onBackPressed() {
+    }
+
+    public void verifEnvio(){
+        if(ppcContext.getPerdaCTR().verifCabecFechado()){
+            textViewProcesso.setTextColor(Color.RED);
+            textViewProcesso.setText("Existem Dados para serem Enviados");
+        } else {
+            textViewProcesso.setTextColor(Color.GREEN);
+            textViewProcesso.setText("Todos os Dados já foram Enviados");
+        }
     }
 
 }

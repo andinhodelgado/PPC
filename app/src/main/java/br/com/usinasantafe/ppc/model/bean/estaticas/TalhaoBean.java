@@ -5,30 +5,27 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import br.com.usinasantafe.ppc.model.pst.Entidade;
 
-/**
- * Created by anderson on 12/04/2017.
- */
-@DatabaseTable(tableName="tbosest")
-public class OSBean extends Entidade {
+@DatabaseTable(tableName="tbtalhaoest")
+public class TalhaoBean extends Entidade {
 
     private static final long serialVersionUID = 1L;
 
     @DatabaseField(id=true)
-    private Long nroOS;
+    private Long idTalhao;
     @DatabaseField
     private Long idSecao;
     @DatabaseField
-    private Long codSecao;
+    private Long codTalhao;
 
-    public OSBean() {
+    public TalhaoBean() {
     }
 
-    public Long getNroOS() {
-        return nroOS;
+    public Long getIdTalhao() {
+        return idTalhao;
     }
 
-    public void setNroOS(Long nroOS) {
-        this.nroOS = nroOS;
+    public void setIdTalhao(Long idTalhao) {
+        this.idTalhao = idTalhao;
     }
 
     public Long getIdSecao() {
@@ -39,11 +36,11 @@ public class OSBean extends Entidade {
         this.idSecao = idSecao;
     }
 
-    public Long getCodSecao() {
-        return codSecao;
+    public Long getCodTalhao() {
+        return codTalhao;
     }
 
-    public void setCodSecao(Long codSecao) {
-        this.codSecao = codSecao;
+    public void setCodTalhao(Long codTalhao) {
+        this.codTalhao = codTalhao;
     }
 }

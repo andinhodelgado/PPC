@@ -6,6 +6,8 @@ import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import br.com.usinasantafe.ppc.model.bean.AtualAplicBean;
 import br.com.usinasantafe.ppc.model.bean.variaveis.ConfigBean;
 import br.com.usinasantafe.ppc.model.dao.AtualAplicDAO;
@@ -54,6 +56,11 @@ public class ConfigCTR {
         AtualDadosServ.getInstance().atualTodasTabBD(tela, progressDialog);
     }
 
+    public void atualDados(Context telaAtual, Class telaProx, ProgressDialog progressDialog, String tipoAtual) {
+        ArrayList classeArrayList = classeAtual(tipoAtual);
+        AtualDadosServ.getInstance().atualGenericoBD(telaAtual, telaProx, progressDialog, classeArrayList);
+    }
+
     public void recToken(String result, Context telaAtual, Class telaProx, ProgressDialog progressDialog) {
 
         AtualAplicBean atualAplicBean = new AtualAplicBean();
@@ -84,6 +91,26 @@ public class ConfigCTR {
         } catch (Exception e) {
             VerifDadosServ.status = 1;
         }
+    }
+
+    public ArrayList<String> classeAtual(String tipoAtual){
+        ArrayList<String> classeArrayList = new ArrayList();
+        switch (tipoAtual) {
+            case "Auditor":
+                classeArrayList.add("AuditorBean");
+                break;
+            case "OS":
+                classeArrayList.add("OSBean");
+                classeArrayList.add("TalhaoBean");
+                break;
+            case "Colhedora":
+                classeArrayList.add("ColhedoraBean");
+                break;
+            case "Operador":
+                classeArrayList.add("OperadorBean");
+                break;
+        }
+        return classeArrayList;
     }
 
 }

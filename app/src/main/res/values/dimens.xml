@@ -7,4 +7,5 @@
     <dimen name="item_lista">22dp</dimen>
     <dimen name="fonte_botao_avulso">20dp</dimen>
     <dimen name="fonte_menu_atividade">10dp</dimen>
+    <dimen name="fonte_num_ok_canc">18dp</dimen>
 </resources>

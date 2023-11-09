@@ -4,15 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_auditor.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_auditor1.xml" value="0.20052083333333334" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_cabecalho.xml" value="0.18802083333333333" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_configuracoes.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_data.xml" value="0.20052083333333334" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_detalhes_cabecalho.xml" value="0.18802083333333333" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_envio_dados.xml" value="0.20052083333333334" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_item_lista.xml" value="0.36666666666666664" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_amostra.xml" value="0.2547945205479452" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_cabecalho.xml" value="0.18802083333333333" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_observacao.xml" value="0.36666666666666664" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_lista_tipo_apont.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_menu_inicial.xml" value="0.20052083333333334" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_msg_fechar_analise.xml" value="0.36666666666666664" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_operador.xml" value="0.20052083333333334" />
+        <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/activity_secao.xml" value="0.20052083333333334" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/layout_botoes.xml" value="0.36666666666666664" />
         <entry key="..\:/User/Informatica/Des/ANDROID/PPC/app/src/main/res/layout/layout_botoes_virgula.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/anderson/Documents/Android/PPC/app/src/main/res/layout/activity_data.xml" value="0.16822916666666668" />

@@ -3,7 +3,6 @@ package br.com.usinasantafe.ppc.util.conHttp;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
@@ -13,10 +12,8 @@ import br.com.usinasantafe.ppc.util.EnvioDadosServ;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -104,15 +101,15 @@ public class PostCadGenerico extends AsyncTask<String, Void, String>  {
 	protected void onPostExecute(String result) {
 
 		try {
-			Log.i("ECM", "VALOR RECEBIDO --> " + result);
-			if(result.trim().equals("GRAVOU-ANALISE")){
-				EnvioDadosServ.getInstance().deletarAnalise();
-			}
-			else{
+			Log.i("PPC", "VALOR RECEBIDO --> " + result);
+			if(result.trim().startsWith("GRAVOU-ANALISE")){
+				EnvioDadosServ.getInstance().recDados(result);
+			} else {
+				EnvioDadosServ.getInstance().msgFalhaEnvio();
 				EnvioDadosServ.status = 1;
 			}
 		} catch (Exception e) {
-			Log.i("ERRO", "Erro2 = " + e);
+			EnvioDadosServ.getInstance().msgFalhaEnvio();
 			EnvioDadosServ.status = 1;
 		}
 		

@@ -1,6 +1,7 @@
 package br.com.usinasantafe.ppc.view;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -41,7 +42,7 @@ public class DetalhesCabecalhoActivity extends ActivityGeneric {
 
         String msgCabecalho = "TURNO: " + cabecalhoBean.getNroTurnoCabec() + " \n" +
                 "FRENTE: " + cabecalhoBean.getCodFrenteCabec() + " \n" +
-                "COLHEDORA: " + cabecalhoBean.getCodColhedoraCabec() + " \n" +
+                "COLHEDORA: " + cabecalhoBean.getNroColhedoraCabec() + " \n" +
                 "MOTORISTA:  " + cabecalhoBean.getMatricOperadorCabec() + " \n" +
                 amostra;
 
@@ -66,10 +67,13 @@ public class DetalhesCabecalhoActivity extends ActivityGeneric {
 
                 alerta.setPositiveButton("SIM", (dialog, which) -> {
 
-                    ppcContext.getPerdaCTR().fecharAnalise(cabecalhoBean.getIdCabec());
-                    Intent it = new Intent(DetalhesCabecalhoActivity.this, ListaCabecalhoActivity.class);
-                    startActivity(it);
-                    finish();
+                    ProgressDialog progressBar = new ProgressDialog(v.getContext());
+                    progressBar.setCancelable(true);
+                    progressBar.setMessage("ENVIANDO DADOS...");
+                    progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progressBar.show();
+
+                    ppcContext.getPerdaCTR().fecharAnalise(cabecalhoBean.getIdCabec(), DetalhesCabecalhoActivity.this, ListaCabecalhoActivity.class, progressBar);
 
                 });
 

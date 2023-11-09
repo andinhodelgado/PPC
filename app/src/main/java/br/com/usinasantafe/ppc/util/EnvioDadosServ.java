@@ -1,13 +1,11 @@
 package br.com.usinasantafe.ppc.util;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import br.com.usinasantafe.ppc.control.PerdaCTR;
 import br.com.usinasantafe.ppc.util.conHttp.PostCadGenerico;
 import br.com.usinasantafe.ppc.util.conHttp.UrlsConexaoHttp;
-import br.com.usinasantafe.ppc.view.EnvioDadosActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -19,12 +17,13 @@ public class EnvioDadosServ {
 	
 	private static EnvioDadosServ instance = null;
 	private UrlsConexaoHttp urlsConexaoHttp;
-	private Context context;
 	private ProgressDialog progressDialog;
-	private int tipoEnvio;
+	private Context telaAtual;
+	private Class telaProx;
 	public static int status; //1 - Existe Dados para Enviar; 2 - Enviado; 3 - Todos os Dados Foram Enviados;
 
 	public EnvioDadosServ() {
+		urlsConexaoHttp = new UrlsConexaoHttp();
 	}
 	
     public static EnvioDadosServ getInstance() {
@@ -34,20 +33,14 @@ public class EnvioDadosServ {
         return instance;
     }
 
-	public void envioDados(){
+	public void envioDados(Context telaAtual, Class telaProx, ProgressDialog progressDialog){
 
-		if (verifAnaliseEnvio()) {
-			enviarAnalise();
-		} else {
-			status = 3;
-		}
+		this.telaAtual = telaAtual;
+		this.telaProx = telaProx;
+		this.progressDialog = progressDialog;
 
-        
-	}
+		enviarAnalise();
 
-	public Boolean verifAnaliseEnvio() {
-		PerdaCTR perdaCTR = new PerdaCTR();
-		return perdaCTR.verifCabecFechado();
 	}
 
 	public void enviarAnalise() {
@@ -67,29 +60,41 @@ public class EnvioDadosServ {
 		postCadGenerico.execute(strings);
 	}
 
-	public void deletarAnalise(){
-		
-		CabecalhoVARTO cabecalhoVARTO = new CabecalhoVARTO();
-		List listCabec = cabecalhoVARTO.get("status", 2L);
-		
-		for(int i = 0; i < listCabec.size(); i++){
-			
-			cabecalhoVARTO = (CabecalhoVARTO) listCabec.get(i);
-			AmostraVARTO amostraVARTO = new AmostraVARTO();
-			List listaAmostra = amostraVARTO.get("idCabecalho", cabecalhoVARTO.getId());
-			
-			for(int j = 0; j < listaAmostra.size(); j++){
-				amostraVARTO = (AmostraVARTO) listaAmostra.get(j);
-				amostraVARTO.delete();
-			}
-			
-			cabecalhoVARTO.delete();
-			
-		}
-		
-		respostaEnvio(true);
-		
+	public void recDados(String result){
+		PerdaCTR perdaCTR = new PerdaCTR();
+		perdaCTR.recDados(result);
+		msgSucessoEnvio();
 	}
 
-    
+	public void msgSucessoEnvio(){
+
+		progressDialog.dismiss();
+
+		AlertDialog.Builder alerta = new AlertDialog.Builder(this.telaAtual);
+		alerta.setTitle("ATENCAO");
+		alerta.setMessage("DADOS ENVIADO COM SUCESSO.");
+		alerta.setPositiveButton("OK", (dialog, which) -> {
+			Intent it = new Intent(telaAtual, telaProx);
+			telaAtual.startActivity(it);
+		});
+
+		alerta.show();
+	}
+
+	public void msgFalhaEnvio() {
+
+		progressDialog.dismiss();
+		AlertDialog.Builder alerta = new AlertDialog.Builder(this.telaAtual);
+		alerta.setTitle("ATENCAO");
+		alerta.setMessage("FALHA NO ENVIO DE DADOS! POR FAVOR, TENTE REENVIAR NOVAMENTE OS DADOS.");
+		alerta.setPositiveButton("OK", (dialog, which) -> {
+			Intent it = new Intent(telaAtual, telaProx);
+			telaAtual.startActivity(it);
+		});
+
+		alerta.show();
+
+	}
+
+
 }

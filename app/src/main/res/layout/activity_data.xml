@@ -23,20 +23,20 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/buttonOkData"
-            style="@style/BotaoAvulso"
-            android:layout_weight="1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/texto_padrao_ok" />
-
-        <Button
             android:id="@+id/buttonCancData"
             style="@style/BotaoAvulso"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/texto_padrao_cancelar" />
+
+        <Button
+            android:id="@+id/buttonOkData"
+            style="@style/BotaoAvulso"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_padrao_ok" />
 
     </LinearLayout>
 

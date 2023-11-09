@@ -12,9 +12,10 @@ import br.com.usinasantafe.ppc.model.bean.estaticas.AuditorBean;
 import br.com.usinasantafe.ppc.model.bean.estaticas.ColhedoraBean;
 import br.com.usinasantafe.ppc.model.bean.estaticas.OSBean;
 import br.com.usinasantafe.ppc.model.bean.estaticas.OperadorBean;
-import br.com.usinasantafe.ppc.model.bean.estaticas.TipoAmostradorBean;
+import br.com.usinasantafe.ppc.model.bean.estaticas.TalhaoBean;
 import br.com.usinasantafe.ppc.model.bean.variaveis.AmostraBean;
 import br.com.usinasantafe.ppc.model.bean.variaveis.CabecalhoBean;
+import br.com.usinasantafe.ppc.model.bean.variaveis.ConfigBean;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
@@ -45,11 +46,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			TableUtils.createTable(cs, AuditorBean.class);
 			TableUtils.createTable(cs, ColhedoraBean.class);
 			TableUtils.createTable(cs, OperadorBean.class);
-			TableUtils.createTable(cs, TipoAmostradorBean.class);
 			TableUtils.createTable(cs, OSBean.class);
-			
-			TableUtils.createTable(cs, CabecalhoBean.class);
+			TableUtils.createTable(cs, TalhaoBean.class);
+
 			TableUtils.createTable(cs, AmostraBean.class);
+			TableUtils.createTable(cs, CabecalhoBean.class);
+			TableUtils.createTable(cs, ConfigBean.class);
 			
 		} catch(Exception e) {
 			Log.e(DatabaseHelper.class.getName(),

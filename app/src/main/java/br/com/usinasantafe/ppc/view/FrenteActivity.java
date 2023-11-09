@@ -39,7 +39,7 @@ public class FrenteActivity extends ActivityGeneric {
 
                     } else if(ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().getTipoColheitaCabec() == 2L){
 
-                        ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().setCodColhedoraCabec(0L);
+                        ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().setNroColhedoraCabec(0L);
                         ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().setMatricOperadorCabec(0L);
                         ppcContext.getPerdaCTR().getCabecDAO().salvarCabecAberto();
 
