@@ -40,7 +40,12 @@ public class DataActivity extends ActivityGeneric {
         });
 
         buttonCancData.setOnClickListener(v -> {
-            Intent it = new Intent(DataActivity.this, Auditor3Activity.class);
+            Intent it;
+            if(ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().getMatricAuditor2Cabec() == 0L){
+                it = new Intent(DataActivity.this, Auditor2Activity.class);
+            } else {
+                it = new Intent(DataActivity.this, Auditor3Activity.class);
+            }
             startActivity(it);
             finish();
         });

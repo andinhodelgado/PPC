@@ -9,8 +9,7 @@ public class PPCContext extends Application {
 	private ConfigCTR configCTR;
 	private PerdaCTR perdaCTR;
 
-	public static String versaoAPP = "1.01";
-	public static String versaoWS = "1.01";
+	public static String versaoWS = "2.00";
 
 	public PPCContext() {
 	}

@@ -66,12 +66,11 @@ public class Auditor2Activity extends ActivityGeneric {
 
             } else {
 
-                AlertDialog.Builder alerta = new AlertDialog.Builder(Auditor2Activity.this);
-                alerta.setTitle("ATENÇÃO");
-                alerta.setMessage("POR FAVOR, INSIRA A MATRICULA DO AUDITOR 2.");
-
-                alerta.setPositiveButton("OK", (dialog, which) -> editTextPadrao.setText(""));
-                alerta.show();
+                ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().setMatricAuditor2Cabec(0L);
+                ppcContext.getPerdaCTR().getCabecDAO().getCabecBean().setMatricAuditor3Cabec(0L);
+                Intent it = new Intent(Auditor2Activity.this, DataActivity.class);
+                startActivity(it);
+                finish();
 
             }
 
